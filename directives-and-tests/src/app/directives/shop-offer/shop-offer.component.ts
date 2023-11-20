@@ -13,7 +13,7 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
 
   // should be available for buyer and admin
   isButtonBuyVisible = false;
-  isProductDetailsVisible = false;
+  areLoanOptionsVisible = false;
 
   // should be available for delivery man and admin
   isButtonViewPackageParametersVisible = false;
@@ -59,7 +59,7 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
     switch(type) {
       case UserType.Buyer:
         this.isButtonBuyVisible = true;
-        this.isProductDetailsVisible = true;
+        this.areLoanOptionsVisible = true;
         this.isButtonViewPackageParametersVisible = false;
         this.isButtonViewWarehouseStockVisible = false;
 
@@ -67,7 +67,7 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
 
       case UserType.DeliveryMan:
         this.isButtonBuyVisible = false;
-        this.isProductDetailsVisible = false;
+        this.areLoanOptionsVisible = false;
         this.isButtonViewPackageParametersVisible = true;
         this.isButtonViewWarehouseStockVisible = true;
 
@@ -75,7 +75,7 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
 
       case UserType.Admin:
         this.isButtonBuyVisible = true;
-        this.isProductDetailsVisible = true;
+        this.areLoanOptionsVisible = true;
         this.isButtonViewPackageParametersVisible = true;
         this.isButtonViewWarehouseStockVisible = true;
 
@@ -83,7 +83,7 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
 
       default:
         this.isButtonBuyVisible = false;
-        this.isProductDetailsVisible = false;
+        this.areLoanOptionsVisible = false;
         this.isButtonViewPackageParametersVisible = false;
         this.isButtonViewWarehouseStockVisible = false;
 
