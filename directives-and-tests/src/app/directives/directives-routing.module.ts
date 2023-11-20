@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DirectiveSampleComponent } from './directive-sample/directive-sample.component';
+import { ShopOfferComponent } from './shop-offer/shop-offer.component';
 
 const routes: Routes = [
-  { path: '', component: DirectiveSampleComponent }
+  { path: '', component: ShopOfferComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MarlenaRoutingModule { }
+export class DirectivesRoutingModule { }

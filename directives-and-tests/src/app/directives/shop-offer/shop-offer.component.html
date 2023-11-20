@@ -1,0 +1,34 @@
+<div clas="col-md-12">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-7 product-name">
+                SIIamochód
+            </div>
+            <div class="col-md-5">
+                <button class="login-button" (click)="logInAsBuyer()">Zaloguj się jako kupujący</button>
+                <button class="login-button" (click)="logInAsDeliveryMan()">Zaloguj się jako kurier</button>
+                <button class="login-button" (click)="logInAsAdmin()">Zaloguj się jako Admin</button>
+            </div>
+        </div>
+        <div class="row main-info">
+            <div class="col-md-5">
+                <img src="./../../../assets/directives/samochód.png" alt="" class="image" />
+            </div>
+            <div class="col-md-7 header-description">
+                Najlepszy model roku 2024
+                <p>
+                    {{ productDescription }}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <button class="action-button" *ngIf="isButtonBuyVisible">Kup teraz</button>
+                <button class="action-button" *ngIf="isProductDetailsVisible">Pokaż szczegóły</button>
+                <button class="action-button" *ngIf="isButtonViewPackageParametersVisible">Wyświetl parametry</button>
+                <button class="action-button" *ngIf="isButtonViewWarehouseStockVisible">Wyświetl stan magazynowy</button>
+            </div>
+        </div>
+    </div>
+</div>
