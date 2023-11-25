@@ -1,0 +1,27 @@
+<div>
+    <button (click)="showNewContactForm()" class="btn btn-primary" [disabled]="showContactForm">
+        <span>Add contact</span>
+    </button>
+    <button *ngIf="showContactForm" (click)="hideAddContactForm()" class="btn btn-secondary">
+        <span>Hide form</span>
+    </button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of (getContacts | async)">
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.surname }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.phoneNumber }}</td>
+    </tr>
+  </tbody>
+</table>
+<app-add-contact-form *ngIf="showContactForm" (contactAdded)="contactAdded($event)"></app-add-contact-form>
