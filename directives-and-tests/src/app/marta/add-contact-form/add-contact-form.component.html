@@ -35,7 +35,7 @@
             placeholder="Enter email">
         <div class="error" *ngIf="formGroup.get('email')?.touched">
             <p *ngIf="formGroup.get('email')?.errors?.['required']">Email is required</p>
-            <p *ngIf="formGroup.get('email')?.errors?.['email']">Not a valid Email</p>
+            <p *ngIf="formGroup.get('email')?.errors?.['pattern']">Not a valid Email</p>
         </div>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
