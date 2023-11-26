@@ -5,7 +5,6 @@ import { ContactService } from '../services/contact.service';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { AddContactFormComponent } from '../add-contact-form/add-contact-form.component';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 describe('ContactsComponent', () => {
