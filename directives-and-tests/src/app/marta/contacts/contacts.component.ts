@@ -11,7 +11,7 @@ import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 export class ContactsComponent implements OnInit, OnDestroy {
 
   @ViewChild('addNewContact', { read: TemplateRef, static: true })
-  addNewContact!: TemplateRef<any>;
+  addNewContact!: TemplateRef<Element>;
 
   private contacts: BehaviorSubject<Contact[]> = new BehaviorSubject<Contact[]>([]);
   private destroyed$: Subject<void> = new Subject<void>();
