@@ -1,8 +1,7 @@
 import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 
 @Directive({
-    selector: "[highlitedText]",
-    standalone: true
+    selector: "[highlitedText]"
 })
 
 export class HighlightedTextDirective {
