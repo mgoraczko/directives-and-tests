@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import { distinctUntilChanged, filter } from 'rxjs/operators';
 import { UserType } from '../enums/user-type.enum';
 import { ProductService } from '../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop-offer',
@@ -24,17 +25,18 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
 
   constructor(
     private userService: UserService,
-    private productService: ProductService) {} 
+    private productService: ProductService,
+    private router: Router) {} 
 
   ngOnInit(): void {
-    this.userService.user$.asObservable()
-      .pipe(
-        filter(user => !!user),
-        distinctUntilChanged()
-      )
-      .subscribe(user => {
-        this.setVisibilityFlags(user!.type);
-      });
+    // this.userService.user$.asObservable()
+    //   .pipe(
+    //     filter(user => !!user),
+    //     distinctUntilChanged()
+    //   )
+    //   .subscribe(user => {
+    //     this.setVisibilityFlags(user!.type);
+    //   });
 
      this.setProductDescription(); 
   }
@@ -45,14 +47,17 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
 
   public logInAsBuyer(): void {
     this.userService.setUserType(UserType.Buyer);
+    this.reloadCurrentRoute();
   }
 
   public logInAsDeliveryMan(): void {
     this.userService.setUserType(UserType.DeliveryMan);
+    this.reloadCurrentRoute();
   }
 
   public logInAsAdmin(): void {
     this.userService.setUserType(UserType.Admin);
+    this.reloadCurrentRoute();
   }
 
   private setVisibilityFlags(type: UserType): void {
@@ -93,6 +98,13 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
 
   private setProductDescription(): void {
     this.productDescription = this.productService.getProductDescription();
+  }
+
+  private reloadCurrentRoute(): void {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
   }
 
 }
