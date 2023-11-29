@@ -29,14 +29,14 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
     private router: Router) {} 
 
   ngOnInit(): void {
-    this.userService.user$.asObservable()
-      .pipe(
-        filter(user => !!user),
-        distinctUntilChanged()
-      )
-      .subscribe(user => {
-        this.setVisibilityFlags(user!.type);
-      });
+    // this.userService.user$.asObservable()
+    //   .pipe(
+    //     filter(user => !!user),
+    //     distinctUntilChanged()
+    //   )
+    //   .subscribe(user => {
+    //     this.setVisibilityFlags(user!.type);
+    //   });
 
      this.setProductDescription(); 
   }
@@ -47,14 +47,17 @@ export class ShopOfferComponent implements OnInit, OnDestroy {
 
   public logInAsBuyer(): void {
     this.userService.setUserType(UserType.Buyer);
+    this.reloadCurrentRoute();
   }
 
   public logInAsDeliveryMan(): void {
     this.userService.setUserType(UserType.DeliveryMan);
+    this.reloadCurrentRoute();
   }
 
   public logInAsAdmin(): void {
     this.userService.setUserType(UserType.Admin);
+    this.reloadCurrentRoute();
   }
 
   private setVisibilityFlags(type: UserType): void {
